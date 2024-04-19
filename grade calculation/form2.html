@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assests/css/form2.style.css">
+    <title>grdae calculator</title>
+</head>
+<body>
+    <section id="formbox">
+        <div class="box">
+            <form>
+                <label class="transform1 form-label">grade calculator</label>
+                <div>
+                    <input type="input" onblur="display()" class="fill" placeholder="Name" id="name">
+                    <p id="display-result"></p>
+                    <input type="number" onblur="show()" class="fill" placeholder="Age" id="age">
+                    <div id="show-result"></div>
+                    <div>
+                    <h3 class="transform1">enter marks</h3>
+                    <input type="number" class="fill" placeholder="English" id="marks1">
+                    <div id="print"></div>
+                    <input type="number" class="fill" placeholder="Math" id="marks2">
+                    <input type="number" class="fill" placeholder="Computer" id="marks3">
+                    <input type="number" class="fill" placeholder="Science" id="marks4">
+                    <input type="number" class="fill" placeholder="Hindi" id="marks5">
+                    <div class="grade-btn" onclick="showgrade()">Grade</div><p id="gradeshow"></p>
+                    </div>
+                    <div><button type="submit" class="transform2  sign_btn">sign in</button></div>
+                    
+                </div>
+                
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function display() {
+            let x = document.getElementById('name').value;
+            let text;
+            // console.log(x);
+            if (x.length == 0) {
+                text = "Name field can't be empty";
+            }
+            else {
+                text = "Welcome " + x.toUpperCase() + " !";
+            }
+            document.getElementById('display-result').innerHTML = text;
+        }
+
+        function show(){
+            let s=document.getElementById("age").value;
+            let result;
+            if(s==0){
+                result="age field can't be empty";
+            }
+            else if(s<10){
+                result="You are not elgible";
+            }
+            else{
+                result="You are elgible";
+            }
+            document.getElementById('show-result').innerHTML=result;
+        }
+
+        function showgrade(){
+            // console.log("ji")
+            let english=document.getElementById("marks1").value;
+            let printshow;
+            // if(english>100){
+            //     printshow="Marks not valid";
+            // }
+            // document.getElementById('print').innerHTML=printshow;
+            console.log(english);
+            english=Number.parseInt(english);
+
+            let math=document.getElementById("marks2").value;
+            console.log(math);
+            math=Number.parseInt(math);
+
+            let computer=document.getElementById("marks3").value;
+            console.log(computer);
+            computer=Number.parseInt(computer);
+
+            let science=document.getElementById("marks4").value;
+            console.log(science);
+            science=Number.parseInt(science);
+
+            let hindi=document.getElementById("marks5").value;
+            console.log(hindi);
+            hindi=Number.parseInt(hindi);
+
+            let sum=english+math+computer+science+hindi;
+            console.log(sum);
+
+            let percentage=sum/500*100;
+            console.log(percentage);
+            let grade;
+
+            if(percentage>33 && percentage<=55){
+                // console.log("Grade D");
+                grade="Grade D"
+            }
+
+            else if(percentage>55 && percentage<=65){
+                // console.log("Grade C");
+                grade="Grade C"
+            }
+
+            else if(percentage>65 && percentage<=85){
+                // console.log("Grade B");
+                grade="Grade B"
+            }
+            else if(percentage>85 && percentage<=100){
+                // console.log("Grade A");
+                grade="Grade A"
+            }
+            else{
+                grade="Marks not valid";    
+            }
+            document.getElementById('gradeshow').innerHTML=grade;   
+        }
+    </script>
+</body>
+</html>
